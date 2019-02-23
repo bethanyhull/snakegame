@@ -1,1 +1,5 @@
-print("Let's make snake!")
+var canvas = document.querySelector('canvas');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let c = canvas.getContext('2d');
