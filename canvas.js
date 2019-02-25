@@ -13,13 +13,13 @@ document.onkeydown = checkKey;
 
 var snakeX = 200
 var snakeY = 200
-dy = 10;
-dx = 10
+dy = 20;
+dx = 20;
 
 let snake = [{x: 150, y: 150},
-             {x: 140, y: 140},
-             {x: 130, y: 140},
-             {x: 120, y: 140}]
+             {x: 130, y: 130},
+             {x: 110, y: 110},
+             {x: 90, y: 90}]
 
 
 function checkKey(e) {
@@ -51,10 +51,9 @@ function drawSnake(snakePart) {
   c.fill();
 };
 
-drawSnake(snake);
 
 function drawBigSnake() {
-  snake.forEach(drawSnake());
+  snake.forEach(drawSnake)
 
 };
 
