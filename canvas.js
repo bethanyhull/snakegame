@@ -17,9 +17,9 @@ dy = 20;
 dx = 20;
 
 let snake = [{x: 150, y: 150},
-             {x: 130, y: 130},
-             {x: 110, y: 110},
-             {x: 90, y: 90}]
+             {x: 130, y: 150},
+             {x: 110, y: 150},
+             {x: 90, y: 150}]
 
 
 function checkKey(e) {
@@ -27,17 +27,21 @@ function checkKey(e) {
     e = e || window.event;
     if (e.key == '38') {
       dy = 10;
+      dx = 0;
         // up arrow
     }
     else if (e.key == '40') {
       dy = -10;
+      dx = 0;
         // down arrow
     }
     else if (e.key == '37') {
+      dy = 0;
       dx = -10;
        // left arrow
     }
     else if (e.key == '39') {
+      dy = 0;
       dx = 10;
        // right arrow
     }
