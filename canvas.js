@@ -11,15 +11,15 @@ let c = canvas.getContext('2d');
 
 document.onkeydown = checkKey;
 
-var snakeX = 200
-var snakeY = 200
+var snakeX = 150
+var snakeY = 150
 dy = 20;
-dx = 20;
+dx = 0;
 
-let snake = [{x: 150, y: 150},
-             {x: 130, y: 150},
-             {x: 110, y: 150},
-             {x: 90, y: 150}]
+let snake = [[snakeX, snakeY],
+             [130, 150],
+             [110, 150],
+             [90, 150]]
 
 
 function checkKey(e) {
@@ -47,18 +47,43 @@ function checkKey(e) {
     }
 
 }
-
-function drawSnake(snakePart) {
-  c.beginPath();
-  c.arc(snakePart.x, snakePart.y, 10, 0, Math.PI * 2, true);
-  c.fillStyle = `#ffffff`;
-  c.fill();
-};
+function drawSnake() {
+  var clone = snake.slice(0);
+  snake[0][0] += dx;
+  snake[0][1] += dy;
 
 
-function drawBigSnake() {
-  snake.forEach(drawSnake)
+  for (var i = 0; i < snake.length; i++) {
+    c.beginPath();
+    c.arc(snake[i][0], snake[i][1], 10, 0, Math.PI * 2, true);
+    c.fillStyle = `#ffffff`;
+    c.fill();
 
-};
+}
 
-drawBigSnake();
+for (var j = 1; j < snake.length; j++) {
+
+  snake[j][0] = clone[j-1][0];
+   snake[j][1] = clone[j-1][1];
+
+   console.log(clone[j][0]);
+   console.log(clone[j][1]);
+   console.log(snake[j][0]);
+   console.log(snake[j][1]);
+   console.log(j);
+ }
+
+}
+
+
+
+drawSnake();
+
+function moveSnake() {
+  c.clearRect
+}
+
+// for (var i = 1; i < snake.length; i++) {
+//   snake[i][x] = snake[i-1][x]
+//   snake[i][y] = snake[i-1][y]
+// }
